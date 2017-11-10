@@ -52,6 +52,11 @@ body{
 .helmetOm{
   background-image: url('assets/characters/helmetman/omsmall.png');
 }
+#orb{
+  position: relative;
+  top:150;
+  left:70;
+}
 
 .rotate{
 	-ms-transform: rotateY(360deg); /* IE 9 */

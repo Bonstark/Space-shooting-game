@@ -1,8 +1,10 @@
   $(document).ready(function(){
-    animateDiv();
+    animateAlien();
 
     var box=$(".helmet");
     var boxCenter=[box.offset().left+box.width()/2, box.offset().top+box.height()/2];
+    var orbImage = $('<img src="' + "assets/characters/orb/orbsmall.png" + '" />');
+
 
     $(document).mousemove(function(e){
   	   var angle = Math.atan2(e.pageX- boxCenter[0],- (e.pageY- boxCenter[1]) )*(180/Math.PI);
@@ -11,32 +13,40 @@
        box.css({ '-moz-transform': 'rotate(' + angle + 'deg)'});
        box.css({ 'transform': 'rotate(' + angle + 'deg)'});
      });
-
     $(document).mousedown(function(){
       $("#helmetId").removeClass('helmetGrin').addClass('helmetOm');
+      var orb = $("#orb").append(orbImage);
+      fireOrb();
       });
+
+
     $(document).mouseup(function(){
         $("#helmetId").removeClass('helmetOm').addClass('helmetGrin');
         });
 
 });
 
+function fireOrb(){
+  $('#orb').animate({top: '1000px'}, "slow", "linear", function () {
+    $(this).removeAttr('style');
+    $('#orb').empty();
+   });
+  };
 
-
-function makeNewPosition(){
-  var h = $('#container').height();// Get viewport dimensions (remove the dimension of the div)
+function alienNewPosition(){
+  var h = $('#container').height();
   var w = $('#container').width();
   var nh = Math.floor(Math.random() * h);
   var nw = Math.floor(Math.random() * w);
   return [nh,nw];
 }
 
-function animateDiv(){
-  var newq = makeNewPosition();
+function animateAlien(){
+  var newq = alienNewPosition();
   var oldq = $('.alien').offset();
   var speed = calcSpeed([oldq.top, oldq.left], newq);
   $('.alien').animate({ top: newq[0], left: newq[1] }, speed, function(){
-    animateDiv();
+    animateAlien();
   });
 };
 
