@@ -3,7 +3,7 @@
 
     var box=$(".helmet");
     var boxCenter=[box.offset().left+box.width()/2, box.offset().top+box.height()/2];
-    var orbImage = $('<img src="' + "assets/characters/orb/orbsmall.png" + '" />');
+    var orbImage = $('<img src="' + "https://i.imgur.com/q4AXsg3.png" + '" />');
 
 
     $(document).mousemove(function(e){
