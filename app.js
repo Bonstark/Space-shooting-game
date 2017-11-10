@@ -27,10 +27,10 @@
 });
 
 function fireOrb(){
-  $('#orb').animate({top: '1000px'}, "slow", "linear", function () {
+  $('#orb').animate({top: '1000px'}, "slow", function () {
     $(this).removeAttr('style');
     $('#orb').empty();
-   });
+  });
   };
 
 function alienNewPosition(){

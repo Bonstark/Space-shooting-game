@@ -52,10 +52,10 @@ body{
 .helmetOm{
   background-image: url('https://i.imgur.com/L7ndMWG.png');
 }
-#orb{
-  position: relative;
-  top:150;
-  left:70;
+.orb{
+  position: absolute;
+  top:150px;
+  left:70px;
 }
 
 .rotate{
