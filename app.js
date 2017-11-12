@@ -1,5 +1,6 @@
   $(document).ready(function(){
-    animateAlien();
+    spawnAlien();
+    containerCollision();
 
     var box=$(".helmet");
     var boxCenter=[box.offset().left+box.width()/2, box.offset().top+box.height()/2];
@@ -26,8 +27,38 @@
 
 });
 
+function containerCollision(){
+	var collisionOne = $('#container');
+	var collisionTwo = $('.orb');
+	window.setInterval(function() {
+			$('#containerResult').text(collision(collisionOne, collisionTwo));
+	}, 2);
+}
+
+
+//checks collision
+		function collision(collisionOne, collisionTwo) {
+      var x1 = collisionOne.offset().left;
+      var y1 = collisionOne.offset().top;
+      var h1 = collisionOne.outerHeight(true);
+      var w1 = collisionOne.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = collisionTwo.offset().left;
+      var y2 = collisionTwo.offset().top;
+      var h2 = collisionTwo.outerHeight(true);
+      var w2 = collisionTwo.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+
+    }
+
+
 function fireOrb(){
-  $('#orb').animate({top: '1000px'}, "slow", function () {
+  $('#orb').animate({top: '580px'}, "slow", function () {
     $(this).removeAttr('style');
     $('#orb').empty();
   });
@@ -41,14 +72,14 @@ function alienNewPosition(){
   return [nh,nw];
 }
 
-function animateAlien(){
+function spawnAlien(){
   var newq = alienNewPosition();
   var oldq = $('.alien').offset();
   var speed = calcSpeed([oldq.top, oldq.left], newq);
   $('.alien').animate({ top: newq[0], left: newq[1] }, speed, function(){
-    animateAlien();
+    spawnAlien();
   });
-};
+}
 
 function calcSpeed(prev, next) {
   var x = Math.abs(prev[1] - next[1]);
