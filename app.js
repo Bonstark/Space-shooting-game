@@ -1,10 +1,10 @@
 function startGame(){
-  // window.setTimeout(endGame, 2000);
+  window.setTimeout(endGame, 2000);
     var score = 0;
   $('#start').css("display", "none");
   $('.hidden').show();
     timer = setInterval(function() {
-        $("#score").text("You scored: " + score + " so far.");
+        $("#score").text("You score is " + score + " so far.");
         var alienCollision =  collision($("#rocket"), $("#alienDiv"));
         console.log(alienCollision);
         if (alienCollision === true) {
@@ -13,7 +13,7 @@ function startGame(){
         score++
         };
     }, 33);
-    setTimeout(() => endGame(), 2000);
+
 
 
     $(document).ready(function(){
