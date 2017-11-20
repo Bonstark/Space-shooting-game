@@ -3,15 +3,20 @@
 <head>
   <meta charset="utf-8"/>
   <title>Louis Chappell</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="app.js"></script>
   <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
   <link type="text/css" rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
+<div class='display'id="title"><h3>SPACE BLASTINGS</h3>
+</div>
   <div id="container">
     <input type="button" class="display start" id="start" value="start" onClick="startGame()" />
+    <div class="hidden display" id="final">
+    </div>
     <div class="spaceship1 spaceship hidden" id="spaceship1">
       <div class="rocket" id="rocket">
       </div>

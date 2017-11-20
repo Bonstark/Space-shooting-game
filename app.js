@@ -1,9 +1,11 @@
 function startGame(){
-  window.setTimeout(endGame, 2000);
+
     var score = 0;
   $('#start').css("display", "none");
   $('.hidden').show();
+  countdown(); //You can change how many seconds you have left in the function line. You must also change the timeout below.
     timer = setInterval(function() {
+        window.setTimeout(endGame, 10000);
         $("#score").text("You score is " + score + " so far.");
         var alienCollision =  collision($("#rocket"), $("#alienDiv"));
         console.log(alienCollision);
@@ -13,36 +15,52 @@ function startGame(){
         score++
         };
     }, 33);
+}
 
-
-
-    $(document).ready(function(){
-    $(document).mousemove(function(e){
-       var box=$(".spaceship1");
-       var boxCenter=[box.offset().left+box.width()/2, box.offset().top+box.height()/2];
-       var angle = Math.atan2(e.pageX- boxCenter[0],- (e.pageY- boxCenter[1]) )*(180/Math.PI);
-       var angle = angle-180
-       box.css({ "-webkit-transform": 'rotate(' + angle + 'deg)'});
-       box.css({ '-moz-transform': 'rotate(' + angle + 'deg)'});
-       box.css({ 'transform': 'rotate(' + angle + 'deg)'});
-     });
-    $(document).mousedown(function(){
-      $("#spaceship1").removeClass('spaceship').addClass('spaceshipFire');
-      $("#rocket").append($('<img src="' + "https://i.imgur.com/AjHoktj.png" + '" />'));
-      $('#rocket').animate({top: '580px'}, "slow", function () {
-        $(this).removeAttr('style');
-        $('#rocket').empty();
-      });
-      });
-    $(document).mouseup(function(){
-        $("#spaceship1").removeClass('spaceshipFire').addClass('spaceship');
-      });
+$(document).ready(function(){
+  $(document).mousemove(function(e){
+     var box=$(".spaceship1");
+     var boxCenter=[box.offset().left+box.width()/2, box.offset().top+box.height()/2];
+     var angle = Math.atan2(e.pageX- boxCenter[0],- (e.pageY- boxCenter[1]) )*(180/Math.PI);
+     var angle = angle-180
+     box.css({ "-webkit-transform": 'rotate(' + angle + 'deg)'});
+     box.css({ '-moz-transform': 'rotate(' + angle + 'deg)'});
+     box.css({ 'transform': 'rotate(' + angle + 'deg)'});
+   });
+  $(document).mousedown(function(){
+    $("#spaceship1").removeClass('spaceship').addClass('spaceshipFire');
+    $("#rocket").append($('<img src="' + "https://i.imgur.com/AjHoktj.png" + '" />'));
+    $('#rocket').animate({top: '580px'}, "slow", function () {
+      $(this).removeAttr('style');
+      $('#rocket').empty();
     });
-  }
-
+    });
+  $(document).mouseup(function(){
+      $("#spaceship1").removeClass('spaceshipFire').addClass('spaceship');
+    });
+});
 
 function endGame(){
-  $('#spaceship1', '#rocket', '#alienDiv').css("display", "none");
+  $('#container').empty();
+  $('#score').hide();
+  $('#title').empty().append("<h3>SPACE BLASTINGS</h3>");
+  $('#final').append("<h3>Your score was " + score + "</h3>");
+  // $('#score').removeClass('score').addClass('start');
+  // clearInterval(timer);
+  // alert('FINISH');
+  // $('.spaceship', '.rocket', '.alien').css("display", "none");
+}
+
+function countdown(){
+  var counter = 10;
+  id = setInterval(function() {
+    counter--;
+    if(counter < 0) {
+        clearInterval(id);
+    } else {
+          $('#title').empty().append("<h3>You have " + counter + " seconds left.</h3>");
+    }
+  }, 1000);
 }
 function collision(cOne, cTwo) {
       var x1 = cOne.offset().left;
@@ -62,7 +80,6 @@ function collision(cOne, cTwo) {
       return true;
     }
 function firerocket(){
-
 }
 function spawnAlien(){
     $('#container').append($('#alienDiv'));

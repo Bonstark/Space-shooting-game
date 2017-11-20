@@ -1,5 +1,5 @@
 body{
-  font-family: "MS PGothic",'Mplus 1p','ＭＳ Ｐゴシック';
+  font-family: 'Orbitron',"MS PGothic",'Mplus 1p','ＭＳ Ｐゴシック';
   width: 100vw;
   height: 100vh;
   background-image: url('https://i.imgur.com/lRoq1TD.gif');
@@ -10,11 +10,9 @@ body{
   background-color: #FFFFFF;
   overflow: hidden;
 }
-
 p {
   text-align: center;
 }
-
 #container{
   width: 560px;
   max-width: 90%;
@@ -32,7 +30,6 @@ p {
   box-shadow: 0 0 10px black;
   overflow: hidden;
 }
-
 .display{
   position: absolute;
   color: #313131;
@@ -47,29 +44,45 @@ p {
   display: block;
   font-family: Helvetica, sans-serif;
   margin: auto;
-  border-radius: 25px;
+  border-radius: 15px;
   text-align: center;
   outline: 0;
   box-shadow: 0 0 10px black;
 }
 .start{
+  font-family: 'Orbitron';
   top: 350px;
   left: 200px;
 }
 .score{
-  bottom:0;
+  font-family: 'Orbitron';
+  font-size: 14px;
+  bottom:3%;
   left:41%;
-  padding-top: 50px;
+  line-height: 55px;
+  background-color: rgba(211,211,211,0.5)
 }
-
+#title{
+  font-size: 20px;
+  line-height: 10px;
+  top:3%;
+  left:41%;
+  font-family: 'Orbitron';
+}
+#final{
+  top:40%;
+  left: 25%;
+  display: none;
+}
 .alien {
+  display: block;
   width: 60px;
   height:85px;
   position:absolute;
   background-image: url('https://i.imgur.com/1Jb9ah4.png');
 }
-
 .spaceship1{
+  display: block;
   position: absolute;
   top: 40%;
   left: 40%;
@@ -87,13 +100,13 @@ p {
   background-image: url('https://i.imgur.com/rE36tFp.png');
 }
 .rocket{
+  display: block;
   position: absolute;
   top:120px;
   left:60px;
   margin: 0;
   padding: 0;
 }
-
 .rotate{
 	-ms-transform: rotateY(360deg); /* IE 9 */
   -webkit-transform: rotateY(360deg); /* Chrome, Safari, Opera */
