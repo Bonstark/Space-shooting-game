@@ -9,15 +9,16 @@
   <link type="text/css" rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<p>Container colliding? <span id="containerResult">false</span></p>
+
   <div id="container">
-    <div class="helmet helmetGrin" id="helmetId">
-      <div class="orb" id="orb">
+    <input type="button" id="start" value="start" onClick="startGame()" />
+    <div class="spaceship1 spaceship hidden" id="spaceship1">
+      <div class="rocket" id="rocket">
       </div>
     </div>
-    <div class="alien" id="alienDiv">
+    <div class="alien hidden" id="alienDiv">
     </div>
   </div>
-
+<div id="score"></div>
 </body>
 </html>

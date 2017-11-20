@@ -27,40 +27,64 @@ p {
   left: 0;
   right: 0;
   margin: auto;
-  /*background-color: rgba(54, 69, 79, 0.5);*/
   background-color: rgba(211,211,211,0.5);
   border-radius: 25px;
+  box-shadow: 0 0 10px black;
+  overflow: hidden;
+}
+
+#start{
+  position: absolute;
+  top: 350px;
+  left: 200px;
+  color: #313131;
+  width: 350px;
+  height: 54px;
+  padding: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  background-color: #c0c0c0;
+  margin-top: 250px;
+  border: 1px solid darkgrey;
+  display: block;
+  font-family: Helvetica, sans-serif;
+  margin: auto;
+  border-radius: 25px;
+  text-align: center;
+  outline: 0;
   box-shadow: 0 0 10px black;
 }
 
 .alien {
-  width: 80px;
-  height:113px;
+  width: 60px;
+  height:85px;
   position:absolute;
-  background-image: url('https://i.imgur.com/fo2kIvr.png');
+  background-image: url('https://i.imgur.com/1Jb9ah4.png');
 }
 
-.helmet{
+.spaceship1{
   position: absolute;
   top: 40%;
   left: 40%;
-  height: 168px;
-  width: 168px;
+  height: 141px;
+  width: 141px;
   margin:auto;
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   background-position: center center;
   background-repeat: no-repeat;
 }
-.helmetGrin{
-  background-image: url('https://i.imgur.com/URFECt8.png');
+.spaceship{
+  background-image: url('https://i.imgur.com/er6ER4s.png');
 }
-.helmetOm{
-  background-image: url('https://i.imgur.com/L7ndMWG.png');
+.spaceshipFire{
+  background-image: url('https://i.imgur.com/rE36tFp.png');
 }
-.orb{
+.rocket{
   position: absolute;
-  top:150px;
-  left:70px;
+  top:120px;
+  left:60px;
+  margin: 0;
+  padding: 0;
 }
 
 .rotate{
@@ -68,4 +92,7 @@ p {
   -webkit-transform: rotateY(360deg); /* Chrome, Safari, Opera */
   transform: rotateY(360deg);
   transition-duration: 3s;
+}
+.hidden{
+  display:none;
 }
