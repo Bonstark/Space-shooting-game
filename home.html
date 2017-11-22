@@ -2,16 +2,19 @@
 <html lang>
 <head>
   <meta charset="utf-8"/>
-  <title>Louis Chappell</title>
+  <title>SPACE BLASTINGS</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/mplus1p.css"/>
+  <link type="text/css" rel="stylesheet" href="style.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="app.js"></script>
-  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
-  <link type="text/css" rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<div class='display'id="title"><h3>SPACE BLASTINGS</h3>
+<div class='display topBox'id="title"><h3>SPACE BLASTINGS</h3>
+</div>
+<div class="display topBox hidden" id="scoreboard">
+  <div class='sbItem hidden' id="gameTimer"></div>
+  <div class='sbItem hidden' id="score"></div>
 </div>
   <div id="container">
     <input type="button" class="display start" id="start" value="start" onClick="startGame()" />
@@ -22,6 +25,5 @@
     <div class="alien hidden" id="alienDiv">
     </div>
   </div>
-<div class='display score hidden' id="score"></div>
 </body>
 </html>

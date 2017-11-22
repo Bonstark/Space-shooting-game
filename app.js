@@ -4,11 +4,11 @@ function startGame(){
   countdown(); //You can change how many seconds you have left in the timeout below, remember to change the time in function countdown too.
   $('#start').css("display", "none");
   $('.hidden').show();
-  setTimeout(endGame, 5000);
+  setTimeout(endGame, 10000);
   timer = setInterval(function() {
-        $("#score").text("You score is " + score + " so far.");
+        $("#score").empty().append("<h3>Score: " + score + "</h3>");
         var alienCollision =  collision($("#rocket"), $("#alienDiv"));
-        console.log("There is a collision. " + alienCollision);
+        // console.log("There is a collision. " + alienCollision);
         if (alienCollision === true) {
         $("#rocket").empty();
         spawnAlien();
@@ -18,19 +18,20 @@ function startGame(){
 }
 function endGame(){
   clearInterval(timer);
-  $('#spaceship1, #rocket, #alienDiv, #score').hide();
-  $('#title').empty().append("<h3>SPACE BLASTINGS</h3>");
-  $('#container').append('<div class="display" id="final"><h3>Your score was ' + score + '</h3></div>');
+  $('#spaceship1, #rocket, #alienDiv, #score, #scoreboard').hide();
+  $('#title').show();
+  $('#container').append('<div class="display" id="final"><h3>You killed ' + score + ' aliens.</h3></div>');
+  $('#container').append('<input type="button" class="display start" id="restart" value="Menu" onClick="reloadGame()" />');
 }
 function countdown(){
-  var counter = 5;
-  $('#title').empty().append("<h3>You have " + counter + " seconds left.</h3>");
+  var counter = 10;
+  $('#gameTimer').empty().append("<h3>" + counter + " seconds left</h3>");
   id = setInterval(function() {
     counter--;
     if(counter < 0) {
         clearInterval(id);
     } else {
-          $('#title').empty().append("<h3>You have " + counter + " seconds left.</h3>");
+          $('#gameTimer').empty().append("<h3>" + counter + " seconds left</h3>");
     }
   }, 1000);
 }
@@ -60,15 +61,15 @@ function mouseMovements(){
      box.css({ "-webkit-transform": 'rotate(' + angle + 'deg)'});
      box.css({ '-moz-transform': 'rotate(' + angle + 'deg)'});
      box.css({ 'transform': 'rotate(' + angle + 'deg)'});
-   });
+   }); //rotate function of the spaceship
   $(document).mousedown(function(){
     $("#spaceship1").removeClass('spaceship').addClass('spaceshipFire');
     fireRocket();
-    });
+  }); // changes image and fires rocket
   $(document).mouseup(function(){
       $("#spaceship1").removeClass('spaceshipFire').addClass('spaceship');
-    });
-}
+    });  // reverts to original image
+} //rotates spaceship, toggles images, fireRocket
 function fireRocket(){
   $("#rocket").append($('<img src="' + "https://i.imgur.com/AjHoktj.png" + '" />'));
   $('#rocket').animate({top: '580px'}, "slow", function () {
@@ -91,3 +92,6 @@ function spawnAlien(){
         top: Math.floor( Math.random() * heightMax )
       });
 }
+function reloadGame(){
+    location.reload();
+  }

@@ -49,22 +49,30 @@ p {
   box-shadow: 0 0 10px black;
 }
 .start{
+  position: relative;
   font-family: 'Orbitron';
   top: 350px;
-  left: 200px;
+  margin: 0 auto;
 }
-.score{
+.sbItem{
+  width: 250px;
+  display: inline;
   font-family: 'Orbitron';
-  font-size: 14px;
-  bottom:3%;
-  left:41%;
-  line-height: 55px;
 }
-#title{
+#gameTimer{
+  float:left;
+}
+#score{
+  float: right;
+}
+.topBox{
+  width: 600px;
+  height:60px;
+  display: inline-block;
   font-size: 20px;
   line-height: 10px;
   top:3%;
-  left:41%;
+  left:35%;
   font-family: 'Orbitron';
 }
 #final{
