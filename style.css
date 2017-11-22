@@ -9,6 +9,7 @@ body{
   background-attachment: scroll;
   background-color: #FFFFFF;
   overflow: hidden;
+  user-select: none;
 }
 p {
   text-align: center;
