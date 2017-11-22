@@ -8,6 +8,7 @@ body{
   background-size:  cover;
   background-attachment: scroll;
   background-color: #FFFFFF;
+  color: #313131;
   overflow: hidden;
   user-select: none;
   text-align: center;
@@ -22,42 +23,40 @@ body{
   padding: 5rem;
   margin: auto;
   background-color: rgba(211,211,211,0.5);
-  border-radius: 25px;
-  box-shadow: 0 0 10px black;
+  border-radius: 1.5625rem;
+  box-shadow: 0 0 0.625rem black;
   overflow: hidden;
+  font-family: 'Orbitron',"MS PGothic",'Mplus 1p','ＭＳ Ｐゴシック';
 }
 
 .display{
   position: relative;
   color: #313131;
-  width: 350px;
-  height: 54px;
-  padding: 5px;
+  width: 21.875rem;
+  height: 3.375rem;
+  padding: 0.3125rem;
   font-size: 1em;
   font-weight: bold;
   background-color: #c0c0c0;
-  border: 1px solid darkgrey;
+  border: 0.0625rem solid darkgrey;
   display: block;
   margin: auto;
   margin-top: 1%;
   margin-bottom: 1%;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   text-align: center;
-  outline-width: thick;
-  box-shadow: 0 0 10px black;
+  outline: 0;
+  box-shadow: 0 0 0.625rem black;
+  font-family: 'Orbitron',"MS PGothic",'Mplus 1p','ＭＳ Ｐゴシック';
 }
 
-#timeChoices{
-  height:300px;
-}
 .start{
-  font-family: 'Orbitron';
-}
+  top: 20%;
+  }
 .sbItem{
   margin-left: 2%;
   margin-right: 2%;
   display: inline;
-  font-family: 'Orbitron';
 }
 #gameTimer{
   float:left;
@@ -67,17 +66,16 @@ body{
 }
 .topBox{
   margin: 1% auto 1%;
-  width: 30%;
+  width: 33%;
   font-size: 1.25rem;
-  line-height: 10px;
-  font-family: 'Orbitron';
+  line-height: 0.625rem;
 }
 #final{
 }
 .alien {
   display: block;
-  width: 60px;
-  height:85px;
+  width: 3.75rem;
+  height:5.3125rem;
   position:absolute;
   background-image: url('https://i.imgur.com/1Jb9ah4.png');
 }
@@ -85,8 +83,8 @@ body{
   display: block;
   position: relative;
   top:40%;
-  height: 141px;
-  width: 141px;
+  height: 8.8125rem;
+  width: 8.8125rem;
   margin:auto;
   background-position: center center;
   background-repeat: no-repeat;
@@ -100,8 +98,8 @@ body{
 .rocket{
   display: block;
   position: absolute;
-  top:120px;
-  left:60px;
+  top:7.5rem;
+  left:3.75rem;
   margin: 0;
   padding: 0;
 }
@@ -113,4 +111,9 @@ body{
 }
 .hidden{
   display:none;
+}
+.selected {
+    background-color: white;
+    color: black;
+    opacity: 0.5;
 }
