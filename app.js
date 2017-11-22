@@ -1,11 +1,19 @@
+$(document).ready(function(){
+    // $('#container').append('<div id="timeChoices"><h3>How long would you like to play for?</h3></div>');
+    $('#container').append('<input type="button" class="display start" id="start" value="start" onClick="startGame()" />');
+})
+
 function startGame(){
   score = 0;
+  gameTime =  10000; //this is how many miliseconds the game will take. Change is passed to the gameTimer div.
+  counter = gameTime*0.03; //
   mouseMovements();
-  countdown(); //You can change how many seconds you have left in the timeout below, remember to change the time in function countdown too.
-  $('#start').css("display", "none");
+
+  $('#start, #timeChoices, #title').css("display", "none");
   $('.hidden').show();
-  setTimeout(endGame, 10000);
+  setTimeout(endGame, gameTime);
   timer = setInterval(function() {
+        countdown();
         $("#score").empty().append("<h3>Score: " + score + "</h3>");
         var alienCollision =  collision($("#rocket"), $("#alienDiv"));
         // console.log("There is a collision. " + alienCollision);
@@ -24,17 +32,10 @@ function endGame(){
   $('#container').append('<input type="button" class="display start" id="restart" value="Menu" onClick="reloadGame()" />');
 }
 function countdown(){
-  var counter = 10;
-  $('#gameTimer').empty().append("<h3>" + counter + " seconds left</h3>");
-  id = setInterval(function() {
-    counter--;
-    if(counter < 0) {
-        clearInterval(id);
-    } else {
-          $('#gameTimer').empty().append("<h3>" + counter + " seconds left</h3>");
-    }
-  }, 1000);
-}
+  counter--;
+  var secondsRemaining = Math.round(counter/33.33);
+  $('#gameTimer').empty().append("<h3>" + secondsRemaining + " seconds left</h3>");
+  }
 function collision(cOne, cTwo) {
       var x1 = cOne.offset().left;
       var y1 = cOne.offset().top;
@@ -72,7 +73,7 @@ function mouseMovements(){
 } //rotates spaceship, toggles images, fireRocket
 function fireRocket(){
   $("#rocket").append($('<img src="' + "https://i.imgur.com/AjHoktj.png" + '" />'));
-  $('#rocket').animate({top: '580px'}, "slow", function () {
+  $('#rocket').animate({top: '1000%'}, "slow", function () {
     $(this).removeAttr('style');
     $('#rocket').empty();
   });
