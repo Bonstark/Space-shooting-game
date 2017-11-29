@@ -100,6 +100,8 @@ body{
 .rocket{
   display: block;
   position: absolute;
+  height: 5%;
+  width: 3%;
   top:90%;
   left:35%;
   margin: 0;

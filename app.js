@@ -86,7 +86,7 @@ function fireRocket(){
   $("#rocket").append($('<img src="' + "https://i.imgur.com/AjHoktj.png" + '" />'));
   $('#rocket').animate({top: '1000%'}, "slow", "easeInCirc", function () {
     $(this).removeAttr('style');
-    $("#rocket").empty();
+    // $("#rocket").empty();
   });
 }
 function collision(cOne, cTwo) {
