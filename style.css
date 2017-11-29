@@ -1,15 +1,13 @@
 body{
   font-family: 'Orbitron',"MS PGothic",'Mplus 1p','ＭＳ Ｐゴシック';
-  width: 100vw;
-  height: 100vh;
   background-image: url('https://i.imgur.com/lRoq1TD.gif');
   background-position: 0% 0%, center;
   background-repeat: no-repeat;
-  background-size:  cover;
+  background-size: cover;
   background-attachment: scroll;
   background-color: #FFFFFF;
   color: #313131;
-  overflow: hidden;
+  overflow: auto;
   user-select: none;
   text-align: center;
 }
@@ -74,20 +72,24 @@ body{
 }
 .alien {
   display: block;
-  width: 3.75rem;
-  height:5.3125rem;
+  width: 7%;
+  height:12%;
   position:absolute;
   background-image: url('https://i.imgur.com/1Jb9ah4.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }
 .spaceship1{
   display: block;
   position: relative;
   top:40%;
-  height: 8.8125rem;
-  width: 8.8125rem;
+  height: 20%;
+  width: 20%;
   margin:auto;
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: contain;
 }
 .spaceship{
   background-image: url('https://i.imgur.com/er6ER4s.png');
@@ -98,10 +100,13 @@ body{
 .rocket{
   display: block;
   position: absolute;
-  top:7.5rem;
-  left:3.75rem;
+  top:90%;
+  left:35%;
   margin: 0;
   padding: 0;
+  /*background-image: url('https://i.imgur.com/AjHoktj.png');
+  background-repeat: no-repeat;
+  background-size: cover;*/
 }
 .rotate{
 	-ms-transform: rotateY(360deg); /* IE 9 */

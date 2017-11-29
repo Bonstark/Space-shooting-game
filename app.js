@@ -11,23 +11,22 @@ $(document).ready(function(){
       });
 })
 function startGame(){
+  rocketDetach = $("#rocket").detach();
+  $('#spaceship1').append(rocketDetach);
   score = 0;
-  //this is how many miliseconds the game will take. Change is passed to the gameTimer div.
-  counter = gameTime*0.03333; //
+  counter = gameTime*0.03333; //changes the counter from setInterval's ticks to readable time remaining.
   mouseMovements();
-
   $('#start, #timeChoices, #title, #10s, #30s, #1m').css("display", "none");
   $('.hidden').show();
   setTimeout(endGame, gameTime);
   timer = setInterval(function() {
         countdown();
         $("#score").empty().append("<h3>Score: " + score + "</h3>");
-        var alienCollision =  collision($("#rocket"), $("#alienDiv"));
+        if ( $('#rocket').length ) { var alienCollision = collision($("#rocket"), $("#alienDiv")) }; //This checks to see if #rocket is present before trying to check for collision.
         // console.log("There is a collision. " + alienCollision);
         if (alienCollision === true) {
-        $("#rocket").empty();
-        spawnAlien();
-        score++
+          explosion();
+          score++
         };
     }, 33);
 }
@@ -37,6 +36,7 @@ function countdown(){
   $('#gameTimer').empty().append("<h3>" + secondsRemaining + " seconds left</h3>");
   }
 function spawnAlien(){
+      // console.log("Alien was spawned");
       $('#container').append($('#alienDiv'));
       var docHeight = $('#container').height(),
           docWidth = $('#container').width(),
@@ -45,10 +45,14 @@ function spawnAlien(){
           divHeight = $div.height(),
           heightMax = docHeight - divHeight,
           widthMax = docWidth - divWidth;
-
+          leftPosition = Math.floor( Math.random() * widthMax );
+          // console.log("Alien's left position is " +leftPosition);
+          topPosition = Math.floor( Math.random() * heightMax );
+          // console.log("Alien's top position is " +topPosition);
+      if ((leftPosition>230 && leftPosition<435)&&(topPosition>230&&topPosition<435))spawnAlien();
       $div.css({
-          left: Math.floor( Math.random() * widthMax ),
-          top: Math.floor( Math.random() * heightMax )
+          left: leftPosition,
+          top: topPosition
         });
   }
 function endGame(){
@@ -77,10 +81,12 @@ function mouseMovements(){
     });  // reverts to original image
 } //rotates spaceship, toggles images, fireRocket
 function fireRocket(){
+  $('#spaceship1').append(rocketDetach);
+  $("#rocket").empty();
   $("#rocket").append($('<img src="' + "https://i.imgur.com/AjHoktj.png" + '" />'));
-  $('#rocket').animate({top: '1000%'}, "slow", function () {
+  $('#rocket').animate({top: '1000%'}, "slow", "easeInCirc", function () {
     $(this).removeAttr('style');
-    $('#rocket').empty();
+    $("#rocket").empty();
   });
 }
 function collision(cOne, cTwo) {
@@ -100,6 +106,19 @@ function collision(cOne, cTwo) {
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
       return true;
     }
+function explosion(){
+    $('#rocket').detach();
+    $("#alienDiv").css("background-image", " url('https://i.imgur.com/6A16iLL.png')");
+    function explosion2(){
+	     $("#alienDiv").css("background-image", " url('https://i.imgur.com/bIP1ftQ.png')");
+     };
+    function resetAlien(){
+       $("#alienDiv").css("background-image", " url('https://i.imgur.com/1Jb9ah4.png')");
+       spawnAlien();
+    }
+    setTimeout(explosion2,150);
+    setTimeout(resetAlien,250);
+        }
 function chooseTime10(){
     gameTime = 10000
   }
